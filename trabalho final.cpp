@@ -15,7 +15,6 @@ float venda();
 void pagamento(int quantidade);
 
 char menu() {
-	// ALUNO: VICTOR
     char op;
     int quantidade;
     printf("\n--- MENU ---\n");
@@ -26,7 +25,7 @@ char menu() {
     printf("5. Vender passe.\n");
     printf("6. Pagamento.\n");
     printf("7. Sair.\n");
-    printf("Escolha uma opÁ„o: ");
+    printf("Escolha uma op√ß√£o: ");
     op = getch();
     printf("%c\n", op);
 
@@ -51,14 +50,13 @@ char menu() {
             break;
         default:
             if (op != '7') {
-                printf("OpÁ„o inv·lida!\n");
+                printf("Op√ß√£o inv√°lida!\n");
             }
     }
     return op;
 }
 
 void cadastrar() {
-	// ALUNO: NICKOLAS
 	system("cls");
     printf("Definir valor do passe individual: ");
     scanf("%f", &passeIndividual);
@@ -68,14 +66,12 @@ void cadastrar() {
 }
 
 void consultar() {
-	// ALUNO: BRUNO
 	system("cls");
     printf("Valor do passe individual: %.2f\n", passeIndividual);
     printf("Valor do pacote com 60 passes (com desconto): %.2f\n", pacote60);
 }
 
 void alterar() {
-	// ALUNO: VICTOR
 	system("cls");
     printf("Digite o novo valor do passe individual: ");
     scanf("%f", &passeIndividual);
@@ -85,15 +81,13 @@ void alterar() {
 }
 
 void excluir() {
-	// ALUNO: BRUNO
 	system("cls");
     passeIndividual = 0;
     pacote60 = 0;
-    printf("Valores excluÌdos.\n");
+    printf("Valores exclu√≠dos.\n");
 }
 
 float venda() {
-	// ALUNO: NICKOLAS
 	system("cls");
     int quantidade;
     printf("Digite a quantidade de passes desejada: ");
@@ -104,15 +98,14 @@ float venda() {
 }
 
 void pagamento(int quantidade) {
-	// ALUNO: VICTOR
     int pagament;
     float valorseco, valorfinal, desconto;
     float pass = passeIndividual;
 
     printf("Escolha a forma de pagamento:\n");
     printf("1. Pix (5%% de desconto)\n");
-    printf("2. CrÈdito (sem desconto)\n");
-    printf("3. DÈbito (sem desconto)\n");
+    printf("2. Cr√©dito (sem desconto)\n");
+    printf("3. D√©bito (sem desconto)\n");
     printf("4. Dinheiro (5%% de desconto)\n");
     scanf("%d", &pagament);
 
@@ -142,7 +135,7 @@ void pagamento(int quantidade) {
             break;
 
         default:
-            printf("Forma de pagamento inv·lida.\n");
+            printf("Forma de pagamento inv√°lida.\n");
             return;
     }
 
@@ -151,7 +144,6 @@ void pagamento(int quantidade) {
 
 
 int main() {
-	// ALUNO: NICKOLAS
     setlocale(LC_ALL, "Portuguese");
     char opcao;
     do {
