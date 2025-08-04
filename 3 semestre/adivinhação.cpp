@@ -1,36 +1,67 @@
 //jogo de adivinhação
 //nOculto=29
-//enquanto o usuario não acertar o numero, o sistema fica em loop
-//qual a quantidade de loops a ser executado
+//enquanto o usuário não acertar o número
+//o sistema fica em loop
+//qual a quantidade de loop a ser executado?
 //parte 2
-//sera informado antes dos palpites a quantidade desejada 0 - 10
-//caso o usuario use todos as oportunidades, e nao acertar, o loop para mesmo assim
+//será informado antes dos palpites a quantidade desejada 0 - 10
+//caso o usuário use todos as oportunidades, e não acertou
+//o loop para mesma assim
+//parte 3
+//caso o distância entre o valor digitado e o Noculto 
+//for menor ou igual 5 "Ta Quente"
+//for menor ou igual 10 e maior que 5 "Ta morno"
+//for maior que 10 "Ta Frio"
 
 #include <stdio.h>
-#include <locale.h>
-#include <conio.h>
-#include <windows.h>
 #include <stdlib.h>
+#include <locale.h>
 #include <time.h>
 
-int main() {
+int main(){
+	setlocale(LC_ALL,"Portuguese");
 	srand(time(NULL)); //randomico
-    SetConsoleOutputCP(CP_UTF8);
-	int nOculto=(rand() %10 )+1;
-	int palpite, tentativas, qtdtentativas=0;
 	
-	printf("Quantas tentativas deseja (0-10): ");
-	scanf("%d", &tentativas);
+	int nOculto=(rand() % 10)+1; //5 
+	int palpite, tentativas, qtdTentativas=0;
+	int intervalo;
+	
+	printf("Quantas Tentativas deseja (0-10): ");
+	scanf("%d", &tentativas); 
 	
 	do{
-		qtdtentativas++;
-		printf("\nDigite um numero: ");
-		scanf("%i", &palpite);
+		qtdTentativas++;
+		printf("Digite um Número: ");
+		scanf("%i", &palpite); 
+		
+		intervalo=nOculto-palpite; 		
+		if(intervalo<0) intervalo=intervalo*-1;  //utilizado para deixar o valor Positivo
+		
+		if(intervalo>10) printf("Está Frio...");
+		if(intervalo<=10 && intervalo>5) printf("Está Morno...");
+		if(intervalo<=5) printf("Está Quente..."); 
+		
+		if(intervalo>10){
+			printf("Está Frio...");
+		}else if(intervalo<=10 && intervalo>5){
+			printf("Está Morno...");
+		}else if(intervalo<=5){
+			printf("Está Quente...");
+		}
+		
+		if(intervalo>10){
+			printf("Está Frio...");
+		}else{
+			if(intervalo<=10 && intervalo>5){
+				printf("Está Morno...");
+			}else {
+				if(intervalo<=5){
+					printf("Está Quente...");
+				}
+			}
+		} 
 		
 		
-		
-	}while(palpite != nOculto && qtdtentativas<tentativas);
-	
-	printf("\nNumero oculto %i", nOculto);
-
+	}while(palpite!=nOculto && qtdTentativas<tentativas);
+	printf("\nNúmero Oculto %i", nOculto);
 }
